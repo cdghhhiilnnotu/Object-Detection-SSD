@@ -43,6 +43,7 @@ if __name__ == "__main__":
 
     root_path = "./data/VOCdevkit/VOC2012/"
     train_img_list, train_annotation_list, val_img_list, val_annotation_list = make_datapath_list(root_path)
+    
     idx = 1
     img_file_path = val_img_list[idx]
     img = cv2.imread(img_file_path) # [height, width, 3 channels:BGR]

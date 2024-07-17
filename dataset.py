@@ -36,7 +36,7 @@ class MyDataset(data.Dataset):
         img = torch.from_numpy(img[:,:,(2,1,0)]).permute(2,0,1)
 
         # ground truth
-        gt = gt = np.hstack((boxes, np.expand_dims(labels, axis=1)))
+        gt = np.hstack((boxes, np.expand_dims(labels, axis=1)))
 
         return img, gt, height, width
 
@@ -70,10 +70,10 @@ if __name__ == "__main__":
     input_size = 300
 
     train_dataset = MyDataset(train_img_list, train_annotation_list, phase="train",
-    transform=DataTransform(input_size, color_mean), anno_xml=Anno_xml(classes))
+                            transform=DataTransform(input_size, color_mean), anno_xml=Anno_xml(classes))
 
     val_dataset = MyDataset(val_img_list, val_annotation_list, phase="val",
-    transform=DataTransform(input_size, color_mean), anno_xml=Anno_xml(classes))
+                            transform=DataTransform(input_size, color_mean), anno_xml=Anno_xml(classes))
 
     # print(len(train_dataset))
     # print(train_dataset.__getitem__(1))
